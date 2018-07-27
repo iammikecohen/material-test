@@ -123,5 +123,8 @@
       }
     }
   },
-  "defaultProject": "material"
+  "defaultProject": "material",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }
