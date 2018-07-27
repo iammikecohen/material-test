@@ -1,11 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
 import { environment } from '../environments/environment';
+import { AppComponent } from './app.component';
+import { reducers, metaReducers } from './reducers';
+import { UserModule } from './modules/user';
+
+const FEATURE_MODULES = [
+  UserModule
+];
 
 @NgModule({
   declarations: [
@@ -13,6 +18,7 @@ import { environment } from '../environments/environment';
   ],
   imports: [
     BrowserModule,
+    ...FEATURE_MODULES,
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : []
   ],
