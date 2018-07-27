@@ -8,17 +8,13 @@ import { AppComponent } from './app.component';
 import { reducers, metaReducers } from './reducers';
 import { UserModule } from './modules/user';
 
-const FEATURE_MODULES = [
-  UserModule
-];
-
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
     BrowserModule,
-    ...FEATURE_MODULES,
+    UserModule.forRoot(),
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : []
   ],
