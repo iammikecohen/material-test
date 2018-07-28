@@ -14,7 +14,7 @@
   Friends:
   <ul *ngIf="users | async as otherUsers">
     <li *ngFor="let id of otherUsers.ids">
-      <mat-checkbox *ngIf="id !== data.id"
+      <mat-checkbox *ngIf="!data || id !== data.id"
                     (change)="updateStatus(id, $event.checked)"
                     [checked]="areFriends(id)">
                     {{ otherUsers.entities[id].name }}</mat-checkbox>
