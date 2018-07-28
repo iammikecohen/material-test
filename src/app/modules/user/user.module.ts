@@ -11,7 +11,7 @@ import { UserAddComponent } from './containers/user-add/user-add.component';
 const COMPONENTS = [
   UserListComponent,
   UserAddComponent
-]
+];
 
 @NgModule({
   imports: [
