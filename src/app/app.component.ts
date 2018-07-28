@@ -2,7 +2,8 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
 import { UserService } from './modules/user/user.service';
-import { UserAddComponent } from './modules/user/containers/user-add/user-add.component';
+import { UserAddComponent } from './modules/user/components';
+const shortid = require('shortid');
 
 @Component({
   selector: 'app-root',
@@ -19,7 +20,7 @@ export class AppComponent {
   openAddUserDialog() {
     const dialogRef = this.dialog.open(UserAddComponent);
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result`, result);
+      this.userService.addUser(Object.assign(result, { id: shortid.generate() }));
     });
   }
 
