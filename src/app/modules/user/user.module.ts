@@ -5,6 +5,7 @@ import { MatInputModule } from '@angular/material';
 import { MatListModule } from '@angular/material/list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import * as fromUser from './store/user.reducer';
 import { UserListComponent, UserAddComponent } from './components';
@@ -20,7 +21,8 @@ const MATERIAL_MODULES = [
   MatListModule,
   MatInputModule,
   MatFormFieldModule,
-  MatButtonModule
+  MatButtonModule,
+  MatCheckboxModule
 ];
 
 @NgModule({

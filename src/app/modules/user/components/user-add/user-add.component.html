@@ -1,15 +1,24 @@
-<form class="user-add-form" (ngSubmit)="addUser()" [formGroup]="options">
-  <mat-form-field [hideRequiredMarker]="options.value.hideRequired"
-                  [floatLabel]="options.value.floatLabel">
+<form class="user-add-form" (ngSubmit)="addUser()" [formGroup]="user">
+  <mat-form-field [hideRequiredMarker]="user.value.hideRequired"
+                  [floatLabel]="user.value.floatLabel">
     <input type="text" matInput placeholder="Name" required formControlName="name">
   </mat-form-field>
-  <mat-form-field [hideRequiredMarker]="options.value.hideRequired"
-                  [floatLabel]="options.value.floatLabel">
+  <mat-form-field [hideRequiredMarker]="user.value.hideRequired"
+                  [floatLabel]="user.value.floatLabel">
     <input type="number"  matInput placeholder="Age" required formControlName="age">
   </mat-form-field>
-  <mat-form-field [hideRequiredMarker]="options.value.hideRequired"
-                  [floatLabel]="options.value.floatLabel">
+  <mat-form-field [hideRequiredMarker]="user.value.hideRequired"
+                  [floatLabel]="user.value.floatLabel">
     <input type="number" matInput placeholder="Weight" required formControlName="weight">
   </mat-form-field>
+  Friends:
+  <ul *ngIf="users | async as otherUsers">
+    <li *ngFor="let id of otherUsers.ids">
+      <mat-checkbox *ngIf="id !== data.id"
+                    (change)="updateStatus(id, $event.checked)"
+                    [checked]="areFriends(id)">
+                    {{ otherUsers.entities[id].name }}</mat-checkbox>
+    </li>
+  </ul>
   <button mat-button mat-flat-button color="primary" type="submit">Add</button>
 </form>
