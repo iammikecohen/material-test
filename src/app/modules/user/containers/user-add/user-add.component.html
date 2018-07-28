@@ -1,0 +1,15 @@
+<form class="user-add-form" (ngSubmit)="addUser()" [formGroup]="options">
+  <mat-form-field [hideRequiredMarker]="options.value.hideRequired"
+                  [floatLabel]="options.value.floatLabel">
+    <input type="text" matInput placeholder="Name" required formControlName="name">
+  </mat-form-field>
+  <mat-form-field [hideRequiredMarker]="options.value.hideRequired"
+                  [floatLabel]="options.value.floatLabel">
+    <input type="number"  matInput placeholder="Age" required formControlName="age">
+  </mat-form-field>
+  <mat-form-field [hideRequiredMarker]="options.value.hideRequired"
+                  [floatLabel]="options.value.floatLabel">
+    <input type="number" matInput placeholder="Weight" required formControlName="weight">
+  </mat-form-field>
+  <button mat-button mat-flat-button color="primary" type="submit">Add</button>
+</form>

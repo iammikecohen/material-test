@@ -3,20 +3,20 @@ import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
 import { User } from './user.model';
 import { UserActions, UserActionTypes } from './user.actions';
 
-export interface State extends EntityState<User> {
+export interface UserState extends EntityState<User> {
   // additional entities state properties
 }
 
 export const adapter: EntityAdapter<User> = createEntityAdapter<User>();
 
-export const initialState: State = adapter.getInitialState({
+export const initialState: UserState = adapter.getInitialState({
   // additional entity state properties
 });
 
 export function reducer(
   state = initialState,
   action: UserActions
-): State {
+): UserState {
   switch (action.type) {
     case UserActionTypes.AddUser: {
       return adapter.addOne(action.payload.user, state);

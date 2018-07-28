@@ -1,11 +1,29 @@
 import { TestBed, async } from '@angular/core/testing';
+import { Store, StoreModule } from '@ngrx/store';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatDialogModule } from '@angular/material/dialog';
+
 import { AppComponent } from './app.component';
+import * as fromRoot from './reducers/index';
+
 describe('AppComponent', () => {
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
+      imports: [
+        MatIconModule,
+        MatToolbarModule,
+        MatDialogModule,
+        StoreModule.forRoot({
+          ...fromRoot.reducers
+        })
       ],
+      declarations: [
+        AppComponent,
+        MockUserList
+      ],
+      providers: []
     }).compileComponents();
   }));
   it('should create the app', async(() => {
@@ -13,15 +31,18 @@ describe('AppComponent', () => {
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   }));
-  it(`should have as title 'material'`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('material');
-  }));
-  it('should render title in a h1 tag', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to material!');
-  }));
 });
+
+import { Component, Input } from '@angular/core';
+import { User } from './modules/user/store/user.model';
+
+@Component({
+  selector: 'app-user-list',
+  template: ''
+})
+
+export class MockUserList{
+  @Input() users: User[];
+
+  constructor() { }
+}
