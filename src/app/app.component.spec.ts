@@ -1,11 +1,11 @@
 import { TestBed, async } from '@angular/core/testing';
-import { Store, StoreModule } from '@ngrx/store';
+import { StoreModule } from '@ngrx/store';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppComponent } from './app.component';
-import * as fromRoot from './reducers/index';
+import * as fromRoot from './reducers';
 
 describe('AppComponent', () => {
 
