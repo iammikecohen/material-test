@@ -1,9 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDialogModule } from '@angular/material/dialog';
 
@@ -15,7 +13,6 @@ import { SharedModule } from './shared/shared.module';
 
 
 const MATERIAL_MODULES = [
-  MatIconModule,
   MatToolbarModule,
   MatDialogModule
 ];
