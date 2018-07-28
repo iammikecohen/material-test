@@ -26,7 +26,13 @@ export class UserAddComponent {
   }
   addUser() {
     if(this.options.valid) {
-      this.dialogRef.close(this.options.value);
+      const { name, age, weight, id} = this.options.value;
+      this.dialogRef.close({
+        name: name,
+        age: age,
+        weight: weight,
+        id: id
+      });
     }
   }
 }
