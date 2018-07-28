@@ -24,6 +24,9 @@ const COMPONENTS = [
   ],
   exports: [
     ...COMPONENTS
+  ],
+  entryComponents: [
+    UserAddComponent
   ]
 })
 export class UserModule {
