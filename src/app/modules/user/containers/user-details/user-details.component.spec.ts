@@ -1,4 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { MatIconModule, MatToolbarModule } from '@angular/material';
+import { Store } from '@ngrx/store';
+import { of } from 'rxjs';
 
 import { UserDetailsComponent } from './user-details.component';
 
@@ -8,6 +12,14 @@ describe('UserDetailsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule,
+        MatIconModule,
+        MatToolbarModule
+      ],
+      providers: [
+        { provide: Store, useClass: MockStore}
+      ],
       declarations: [ UserDetailsComponent ]
     })
     .compileComponents();
@@ -23,3 +35,12 @@ describe('UserDetailsComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+
+export class MockStore {
+  public dispatch(obj) { };
+  select = jasmine.createSpy('storeSelect').and.returnValue(of({}));
+  public subscribe() { };
+  public pipe() { return new MockStore(); }
+}
+

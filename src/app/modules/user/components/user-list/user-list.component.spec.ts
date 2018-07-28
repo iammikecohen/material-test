@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatListModule } from '@angular/material/list';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { UserListComponent } from './user-list.component';
 
@@ -11,7 +12,8 @@ describe('UserListComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         MatListModule,
-        SharedModule
+        SharedModule,
+        RouterTestingModule
       ],
       declarations: [
         UserListComponent,
