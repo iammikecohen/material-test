@@ -6,9 +6,11 @@ import { MatListModule } from '@angular/material/list';
 import * as fromUser from './store/user.reducer';
 import { UserListComponent } from './components';
 import { UserService } from './user.service';
+import { UserAddComponent } from './containers/user-add/user-add.component';
 
 const COMPONENTS = [
-  UserListComponent
+  UserListComponent,
+  UserAddComponent
 ]
 
 @NgModule({
