@@ -4,7 +4,7 @@
   <span class=""></span>
 
   <span>
-    <mat-icon (click)="openAddUserDialog()">add</mat-icon>
+    <mat-icon (click)="openAddUserDialog(null)">add</mat-icon>
   </span>
 </mat-toolbar>
-<app-user-list [users]="userService.users"></app-user-list>
+<app-user-list [users]="userService.users" (editUser)="openAddUserDialog($event)"></app-user-list>

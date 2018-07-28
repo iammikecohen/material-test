@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { UserState } from '../../store/user.reducer';
@@ -10,6 +10,7 @@ import { UserState } from '../../store/user.reducer';
 })
 export class UserListComponent {
   @Input() users: Observable<UserState>;
+  @Output() editUser = new EventEmitter();
 
   constructor() { }
 }
