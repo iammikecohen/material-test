@@ -17,10 +17,13 @@ export class AppComponent {
     public dialog: MatDialog
   ) { }
 
-  openAddUserDialog() {
-    const dialogRef = this.dialog.open(UserAddComponent);
+  openAddUserDialog(user) {
+    const dialogRef = this.dialog.open(UserAddComponent, { data: user});
     dialogRef.afterClosed().subscribe(result => {
-      this.userService.addUser(Object.assign(result, { id: shortid.generate() }));
+      if(result) {
+        const user = result.id ? result : Object.assign(result, { id: shortid.generate() });
+        this.userService.addUser(user);
+      }
     });
   }
 
