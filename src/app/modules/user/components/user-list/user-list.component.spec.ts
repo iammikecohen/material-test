@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatListModule } from '@angular/material/list';
 
 import { UserListComponent } from './user-list.component';
 
@@ -8,6 +9,9 @@ describe('UserListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        MatListModule
+      ],
       declarations: [
         UserListComponent,
         HostComponent
