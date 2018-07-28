@@ -29,7 +29,7 @@ export class UserAddComponent {
       id:  new FormControl(this.data ? this.data.id : undefined)
     });
     this.users = this.store.select(selectUserState);
-    if(this.data.friends) {
+    if(this.data && this.data.friends) {
       const emailFormArray = <FormArray>this.user.controls.friends;
       this.data.friends.forEach(friendId => {
         emailFormArray.push(new FormControl(friendId));

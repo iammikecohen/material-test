@@ -1,5 +1,10 @@
 <mat-list role="list" *ngIf="users | async as currentUsers">
-  <mat-list-item *ngFor="let id of currentUsers.ids" role="listitem" (click)="editUser.emit(currentUsers.entities[id])">
-    {{ (users | async).entities[id]?.name }}
+  <mat-list-item *ngFor="let id of currentUsers.ids" role="listitem">
+    <p [routerLink]="['user', id]">
+      {{ (users | async).entities[id]?.name }}
+    </p>
+    <button mat-icon-button (click)="editUser.emit(currentUsers.entities[id])">
+      <mat-icon matListIcon>edit</mat-icon>
+    </button>
   </mat-list-item>
 </mat-list>

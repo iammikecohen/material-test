@@ -1,0 +1,10 @@
+<mat-toolbar color="primary">
+  <span>Users</span>
+
+  <span class=""></span>
+
+  <span>
+    <mat-icon (click)="openAddUserDialog(null)">add</mat-icon>
+  </span>
+</mat-toolbar>
+<app-user-list [users]="userService.users" (editUser)="openAddUserDialog($event)"></app-user-list>
