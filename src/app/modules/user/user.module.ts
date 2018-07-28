@@ -8,7 +8,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import * as fromUser from './store/user.reducer';
-import { UserListComponent, UserAddComponent } from './components';
+import { UserListComponent } from './components';
+import { UserAddComponent } from './containers';
 import { UserService } from './user.service';
 import { SharedModule } from '../../shared/shared.module';
 

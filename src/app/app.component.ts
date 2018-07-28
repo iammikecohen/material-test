@@ -2,7 +2,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
 import { UserService } from './modules/user/user.service';
-import { UserAddComponent } from './modules/user/components';
+import { UserAddComponent } from './modules/user/containers';
 const shortid = require('shortid');
 
 @Component({
