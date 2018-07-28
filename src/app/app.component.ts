@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
 import { UserService } from './modules/user/user.service';
@@ -7,7 +7,8 @@ import { UserAddComponent } from './modules/user/containers/user-add/user-add.co
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
   constructor(
@@ -17,5 +18,9 @@ export class AppComponent {
 
   openAddUserDialog() {
     const dialogRef = this.dialog.open(UserAddComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result`, result);
+    });
   }
+
 }
