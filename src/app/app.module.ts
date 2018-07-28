@@ -11,6 +11,7 @@ import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { reducers, metaReducers } from './reducers';
 import { UserModule } from './modules/user';
+import { SharedModule } from './shared/shared.module';
 
 
 const MATERIAL_MODULES = [
@@ -27,6 +28,7 @@ const MATERIAL_MODULES = [
     BrowserModule,
     BrowserAnimationsModule,
     ...MATERIAL_MODULES,
+    SharedModule,
     UserModule.forRoot(),
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : []

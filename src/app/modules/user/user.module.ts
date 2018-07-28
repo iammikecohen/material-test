@@ -1,22 +1,34 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
+import { MatInputModule } from '@angular/material';
 import { MatListModule } from '@angular/material/list';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
 
 import * as fromUser from './store/user.reducer';
 import { UserListComponent } from './components';
 import { UserService } from './user.service';
 import { UserAddComponent } from './containers/user-add/user-add.component';
+import { SharedModule } from '../../shared/shared.module';
 
 const COMPONENTS = [
   UserListComponent,
   UserAddComponent
 ];
 
+const MATERIAL_MODULES = [
+  MatListModule,
+  MatInputModule,
+  MatFormFieldModule,
+  MatButtonModule
+];
+
 @NgModule({
   imports: [
     CommonModule,
-    MatListModule,
+    ...MATERIAL_MODULES,
+    SharedModule,
     StoreModule.forFeature('user', fromUser.reducer)
   ],
   declarations: [
