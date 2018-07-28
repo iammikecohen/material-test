@@ -26,7 +26,6 @@ const MATERIAL_MODULES = [
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
     ...MATERIAL_MODULES,
     SharedModule,
     UserModule.forRoot(),
