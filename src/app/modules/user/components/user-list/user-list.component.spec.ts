@@ -4,13 +4,14 @@ import { MatListModule } from '@angular/material/list';
 import { UserListComponent } from './user-list.component';
 
 describe('UserListComponent', () => {
-  let component: UserListComponent;
-  let fixture: ComponentFixture<UserListComponent>;
+  let component: HostComponent;
+  let fixture: ComponentFixture<HostComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        MatListModule
+        MatListModule,
+        SharedModule
       ],
       declarations: [
         UserListComponent,
@@ -50,6 +51,7 @@ import { Component } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
 import { UserState } from '../../store';
+import { SharedModule } from '../../../../shared/shared.module';
 
 @Component({
   selector: 'test-host',
