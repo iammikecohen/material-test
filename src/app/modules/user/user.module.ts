@@ -7,9 +7,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 
 import * as fromUser from './store/user.reducer';
-import { UserListComponent } from './components';
+import { UserListComponent, UserAddComponent } from './components';
 import { UserService } from './user.service';
-import { UserAddComponent } from './containers/user-add/user-add.component';
 import { SharedModule } from '../../shared/shared.module';
 
 const COMPONENTS = [

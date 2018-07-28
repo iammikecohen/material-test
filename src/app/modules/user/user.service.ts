@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { BehaviorSubject } from 'rxjs';
 
 import { selectUserState } from './store/user.selections';
+import { AddUser } from './store';
 
 @Injectable({
   providedIn: 'root'
@@ -17,5 +18,9 @@ export class UserService {
 
   get users() {
     return this.storeUsers.asObservable();
+  }
+
+  addUser(newUser) {
+    this.store.dispatch(new AddUser({ user: newUser}))
   }
 }
