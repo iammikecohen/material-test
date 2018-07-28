@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatInputModule, MatDialogModule, MatDialogRef } from '@angular/material';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { UserAddComponent } from './user-add.component';
+import { SharedModule } from '../../../../shared/shared.module';
 
 describe('UserAddComponent', () => {
   let component: UserAddComponent;
@@ -8,6 +11,13 @@ describe('UserAddComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        MatInputModule,
+        MatFormFieldModule,
+        MatDialogModule,
+        SharedModule
+      ],
+      providers: [{provide : MatDialogRef, useValue : {}}],
       declarations: [ UserAddComponent ]
     })
     .compileComponents();
