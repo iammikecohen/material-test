@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import {MatIconModule} from '@angular/material/icon';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
@@ -14,6 +16,8 @@ import { UserModule } from './modules/user';
   ],
   imports: [
     BrowserModule,
+    MatIconModule,
+    MatToolbarModule,
     UserModule.forRoot(),
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : []
