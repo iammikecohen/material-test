@@ -1,8 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { UserService } from '../../user.service';
-import { User } from '../../store/user.model';
 import { UserState } from '../../store/user.reducer';
 
 @Component({
