@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { BehaviorSubject } from 'rxjs';
 
 import { selectUserState } from './store/user.selections';
-import { AddUser } from './store';
+import { UpsertUser } from './store/user.actions';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +21,6 @@ export class UserService {
   }
 
   addUser(newUser) {
-    this.store.dispatch(new AddUser({ user: newUser}))
+    this.store.dispatch(new UpsertUser({ user: newUser}))
   }
 }
